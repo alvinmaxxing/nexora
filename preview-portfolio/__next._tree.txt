@@ -1,4 +1,4 @@
-:HL["/nexora/preview-portfolio/_next/static/chunks/0dwedvye1_c91.css","style"]
+:HL["/nexora/preview-portfolio/_next/static/chunks/17o_vqpaivpt3.css","style"]
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":128}]]
-0:{"b":"B-x9aP_IRPKr4_k_FrmV6","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"QwdX3cLRQ8i7csRYunJck","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
