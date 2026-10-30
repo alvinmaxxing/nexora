@@ -1,0 +1,4 @@
+:HL["/nexora/preview-portfolio/_next/static/chunks/0gt5uq42cc_jb.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"/_not-found","h":64,"c":"$Q2"}]]
+0:{"b":"fEXsQ-udiPVIH_suQ1A7z","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
