@@ -2,4 +2,4 @@
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"terms","h":64,"c":"$Q2"}]]
-0:{"b":"38OLbqon0EcFs_wfDrXtV","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"Qg-1hnnEvccooDvjIDdzY","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
