@@ -1,5 +1,5 @@
-:HL["/nexora/preview-portfolio/_next/static/chunks/3a05nwtaq89mf.css","style"]
+:HL["/nexora/preview-portfolio/_next/static/chunks/3uw7cj3e6ilw4.css","style"]
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"portfolio","h":64,"c":"$Q2"}]]
-0:{"b":"Ptpy03WGZjLCZ5jM6gLMI","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"nyvC7yc4zdrbmE_izmxYI","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
