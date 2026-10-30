@@ -1,4 +1,4 @@
-:HL["/nexora/preview-portfolio/_next/static/chunks/32-ueff_sjy2_.css","style"]
+:HL["/nexora/preview-portfolio/_next/static/chunks/0667cdvlr28dx.css","style"]
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/nexora/preview-portfolio/qorvex-header-lockup.svg","image"]
 :HL["/nexora/preview-portfolio/qfa-flags.webp","image"]
@@ -8,4 +8,4 @@
 :HL["/nexora/preview-portfolio/cmp-inbox.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"case-studies","h":64,"c":"$Q2"}]]
-0:{"b":"yb6m5zmSsnGcL2R5Z-Fz1","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"gqixt8BaYW6iPokt8ktOk","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
