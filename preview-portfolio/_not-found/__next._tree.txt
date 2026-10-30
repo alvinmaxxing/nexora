@@ -1,4 +1,4 @@
 :HL["/nexora/preview-portfolio/_next/static/chunks/1ano71bcnp5nd.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":64,"c":"$Q2"}]]
-0:{"b":"hokKB4uEHAHrmC7swmNsZ","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"PCB0DuglRFhl9rlAbxCYd","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
