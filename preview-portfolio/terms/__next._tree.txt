@@ -1,6 +1,6 @@
-:HL["/nexora/preview-portfolio/_next/static/chunks/1jepawhvwyoq_.css","style"]
+:HL["/nexora/preview-portfolio/_next/static/chunks/2zwxp84blj6p5.css","style"]
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/nexora/preview-portfolio/qorvex-header-lockup.svg","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"terms","h":64,"c":"$Q2"}]]
-0:{"b":"gmakcou3k8zxTv5CldFhs","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"uCGN_-ZcBzT8fxgT6DDsb","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
