@@ -2,4 +2,4 @@
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/nexora/preview-portfolio/qorvex-header-lockup.svg","image"]
 1:[["children",{"s":"__PAGE__","h":128}]]
-0:{"b":"1Elz_czq7VZKzVYAv-OXm","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"WqnoF8GBPNkg7yvEb8X-j","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
