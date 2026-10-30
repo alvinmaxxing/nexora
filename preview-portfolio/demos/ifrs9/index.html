@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qorvex IFRS 9 ECL – SYNTHETIC demo</title>
+<style>
+:root{--bg:#05070D;--panel:#0B1020;--line:#1A2238;--blue:#2F7BFF;--txt:#E6EAF2;--mut:#8A94AD;--warn:#FFB020;--ok:#2BD47D;--bad:#FF5A5A}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 Inter,system-ui,Segoe UI,Arial,sans-serif}
+.banner{position:sticky;top:0;z-index:10;background:#3A2A00;color:var(--warn);border-bottom:1px solid var(--warn);text-align:center;font-weight:700;letter-spacing:.06em;padding:7px 10px;font-size:12px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:8px}
+.logo{font-weight:700;font-size:18px}.logo b{color:var(--blue)}.sub{color:var(--mut);font-size:12px}
+nav{display:flex;gap:4px;padding:10px 24px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{background:none;border:1px solid transparent;color:var(--mut);padding:7px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;font:inherit}
+nav button.on{color:var(--txt);border-color:var(--blue);background:#0E1A36}
+main{padding:20px 24px;max-width:1280px;margin:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:18px}
+.card{overflow-x:auto;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.k{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.05em}.v{font-size:22px;font-weight:600;margin-top:4px;font-variant-numeric:tabular-nums}
+h2{font-size:16px;margin:0 0 10px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{color:var(--mut);font-weight:500;font-size:12px}
+td:first-child,th:first-child{text-align:left}.scroll{overflow-x:auto}
+.ph{display:inline-block;background:#3A2A00;color:var(--warn);border:1px solid var(--warn);border-radius:4px;font-size:11px;padding:1px 6px;margin-left:6px;font-weight:600}
+.pill{border-radius:4px;padding:1px 6px;font-size:12px}.s1{background:#0E2A1C;color:var(--ok)}.s2{background:#2E2300;color:var(--warn)}.s3{background:#2E0F12;color:var(--bad)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:820px){.grid2{grid-template-columns:1fr}main,header,nav{padding-left:14px;padding-right:14px}}
+.sl{display:grid;grid-template-columns:90px 1fr 50px;align-items:center;gap:10px;margin:8px 0}input[type=range]{accent-color:var(--blue);width:100%}
+.bar{height:10px;background:var(--blue);border-radius:3px}.note{color:var(--mut);font-size:12px;margin-top:8px}.pass{color:var(--ok)}.fail{color:var(--bad)}
+.sec{display:none}.sec.on{display:block}
+</style></head><body>
+<div class="banner">SYNTHETIC EXAMPLE DATA – NOT A BoU SUBMISSION – ALL FIGURES ARE ILLUSTRATIVE</div>
+<header><div><div class="logo"><b>Q</b>orvex · IFRS 9 ECL &amp; BoU Credit Risk</div><div class="sub">Prototype · Reference date <span id="ref"></span> · UGX '000</div></div><div class="sub">Local demo · not deployed</div></header>
+<nav id="nav"></nav><main>
+<div class="kpis" id="kpis"></div>
+<section class="sec" id="book"><div class="card"><h2>Loan book (SYNTHETIC) – first 200 of <span id="nl"></span></h2><div class="scroll"><table id="tbook"></table></div></div></section>
+<section class="sec" id="staging"><div class="grid2"><div class="card"><h2>Staging summary</h2><table id="tstage"></table></div><div class="card"><h2>Stage drivers</h2><table id="treason"></table><div class="note">Rules: default ≥90 DPD (and borrower contagion); SICR >30 DPD backstop, PD ratio ≥2×, watch-list or restructured. These rules are illustrative assumptions.</div></div></div></section>
+<section class="sec" id="ecl"><div class="grid2"><div class="card"><h2>Scenario weights</h2><div id="sliders"></div><div class="note">Weights normalise to 100%. ECL is the probability-weighted sum of the per-scenario ECLs.</div></div><div class="card"><h2>ECL by stage</h2><table id="tecl"></table></div></div></section>
+<section class="sec" id="recon"><div class="card"><h2>IFRS 9 ECL vs BoU regulatory provision</h2><table id="trec"></table><div class="note">BoU rates: Substandard 20%, Doubtful 50%, Loss 100%, general provision 1% (SI 2005 No. 43, reg 11). The transfer of the excess to a regulatory reserve is only <b>partially verified</b>; confirm with BoU and the auditor.</div></div></section>
+<section class="sec" id="ret"><div class="grid2"><div class="card"><h2>Sch 2A – FIA classification <span class="ph">PLACEHOLDER LAYOUT</span></h2><table id="t2a"></table></div><div class="card"><h2>Sch 2B / 3A – IFRS 9 stages <span class="ph">PLACEHOLDER LAYOUT</span></h2><table id="t2b"></table></div>
+<div class="card"><h2>Synthetic balance sheet (BS100-style) <span class="ph">PLACEHOLDER LINES</span></h2><table id="tbs"></table></div><div class="card"><h2>Tie-out checks</h2><table id="ttie"></table><div class="note">The tie-out rules come from BoU's Instructions for the Monthly Report on Credit Risk (Jan 2023). The schedule names are verified; the cell layouts are not.</div></div></div></section>
+</main>
+<script>
+const f=x=>Math.round(x/1000).toLocaleString('en-US'),pc=x=>(100*x).toFixed(1)+'%';
+const tabs=[['book','Loan book'],['staging','Staging'],['ecl','ECL & scenarios'],['recon','Reconciliation'],['ret','Draft return']];
+let D,W;
+const tbl=(id,h,rows)=>document.getElementById(id).innerHTML='<tr>'+h.map(x=>`<th>${x}</th>`).join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(c=>`<td>${c}</td>`).join('')+'</tr>').join('');
+const sp=s=>`<span class="pill s${s}">Stage ${s}</span>`;
+function show(t){document.querySelectorAll('.sec').forEach(s=>s.classList.toggle('on',s.id==t));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));location.hash=t}
+function ecl(l){const s=W.Upside+W.Base+W.Downside||1;return(l.ecl_upside_ugx*W.Upside+l.ecl_base_ugx*W.Base+l.ecl_downside_ugx*W.Downside)/s}
+function render(){
+ const L=D.loans,gross=L.reduce((a,l)=>a+l.outstanding_ugx,0),E=L.reduce((a,l)=>a+ecl(l),0);
+ const spec=L.reduce((a,l)=>a+l.bou_specific_ugx,0),reg=spec+D.bou_general,ex=Math.max(reg-E,0);
+ document.getElementById('kpis').innerHTML=[['Gross loans',f(gross)],['IFRS 9 ECL',f(E)],['Coverage',pc(E/gross)],['BoU required provision',f(reg)],['Reserve transfer',f(ex)]].map(([k,v])=>`<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+ const st=[1,2,3].map(s=>{const x=L.filter(l=>l.stage==s);return[s,x.length,x.reduce((a,l)=>a+l.outstanding_ugx,0),x.reduce((a,l)=>a+ecl(l),0)]});
+ tbl('tstage',['Stage','Loans','Gross','Share'],st.map(([s,n,g])=>[sp(s),n,f(g),pc(g/gross)]));
+ const mx=Math.max(...st.map(s=>s[3]));
+ tbl('tecl',['Stage','Gross','ECL','Coverage',''],st.map(([s,n,g,e])=>[sp(s),f(g),f(e),pc(e/g),`<div class="bar" style="width:${80*e/mx}px"></div>`]).concat([['<b>Total</b>',f(gross),'<b>'+f(E)+'</b>',pc(E/gross),'']]));
+ tbl('trec',['Item',"UGX '000"],[['IFRS 9 ECL (probability-weighted)',f(E)],['BoU specific provisions',f(spec)],['BoU general provision (1%)',f(D.bou_general)],['<b>BoU total required</b>','<b>'+f(reg)+'</b>'],['Difference (BoU − IFRS 9)',f(reg-E)],['Opening regulatory reserve (SYNTHETIC)','0'],['<b>Transfer: retained earnings → regulatory reserve</b>','<b>'+f(ex)+'</b>'],['Closing regulatory reserve',f(ex)]]);
+ const cls=['Normal','Watch','Substandard','Doubtful','Loss'];
+ tbl('t2a',['Class','Balance','Provision'],cls.map(c=>{const x=L.filter(l=>l.bou_class==c);return[c,f(x.reduce((a,l)=>a+l.outstanding_ugx,0)),f(x.reduce((a,l)=>a+l.bou_specific_ugx,0))]}).concat([['General 1%','',f(D.bou_general)],['<b>Total</b>',f(gross),f(reg)]]));
+ tbl('t2b',['Stage','Gross','ECL'],st.map(([s,n,g,e])=>['Stage '+s,f(g),f(e)]).concat([['<b>Total</b>',f(gross),f(E)]]));
+ const bs=Object.entries(D.bs_other);const bsGross=D.bs_other['Gross loans and advances'];
+ const rows=bs.map(([k,v])=>[k,f(v)]);rows.splice(3,0,['Less: IFRS 9 ECL allowance','('+f(E)+')']);rows.push(['<b>Total assets</b>','<b>'+f(bs.reduce((a,[k,v])=>a+v,0)-E)+'</b>']);
+ tbl('tbs',['Line',"UGX '000"],rows);
+ const chk=(a,b)=>`<span class="${f(a)==f(b)?'pass':'fail'}">${f(a)==f(b)?'PASS':'FAIL'}</span>`;
+ tbl('ttie',['Check','Return','BS100','Result'],[['Sch 2A total = gross loans',f(gross),f(bsGross),chk(gross,bsGross)],['Sch 2B/3A total = gross loans',f(st.reduce((a,s)=>a+s[2],0)),f(bsGross),chk(st.reduce((a,s)=>a+s[2],0),bsGross)],['ECL allowance = BS100 allowance',f(E),f(E),chk(E,E)]]);
+}
+fetch('data_SYNTHETIC.json').then(r=>r.json()).then(d=>{D=d;W={...d.weights};
+ document.getElementById('ref').textContent=d.ref_date;document.getElementById('nl').textContent=d.loans.length;
+ document.getElementById('nav').innerHTML=tabs.map(([t,n])=>`<button data-t="${t}">${n}</button>`).join('');
+ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.t));
+ tbl('tbook',['Loan ID (SYNTHETIC)','Product','Sector',"Balance UGX'000",'DPD','EIR','PD 12m','Stage','BoU class'],d.loans.slice(0,200).map(l=>[l.loan_id_SYNTHETIC,l.product,l.sector,f(l.outstanding_ugx),l.days_past_due,pc(l.eir),pc(l.current_pd_12m),sp(l.stage),l.bou_class]));
+ const rc={};d.loans.forEach(l=>rc[l.stage_reason]=(rc[l.stage_reason]||0)+1);tbl('treason',['Reason','Loans'],Object.entries(rc).sort((a,b)=>b[1]-a[1]));
+ document.getElementById('sliders').innerHTML=Object.keys(W).map(s=>`<div class="sl"><span>${s}</span><input type="range" min="0" max="100" value="${W[s]*100}" data-s="${s}"><span id="w${s}">${Math.round(W[s]*100)}%</span></div>`).join('');
+ document.querySelectorAll('input[type=range]').forEach(i=>i.oninput=()=>{W[i.dataset.s]=i.value/100;const t=W.Upside+W.Base+W.Downside||1;Object.keys(W).forEach(s=>document.getElementById('w'+s).textContent=Math.round(100*W[s]/t)+'%');render()});
+ render();show((location.hash||'#book').slice(1));});
+</script></body></html>
