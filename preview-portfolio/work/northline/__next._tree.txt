@@ -1,7 +1,7 @@
-:HL["/nexora/preview-portfolio/_next/static/chunks/0dusfdgdwuoaf.css","style"]
+:HL["/nexora/preview-portfolio/_next/static/chunks/012j4z74he29t.css","style"]
 :HL["/nexora/preview-portfolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/nexora/preview-portfolio/qorvex-header-lockup.svg","image"]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"d","k":"northline","s":["complaints-handling","cyber-incident-register","ifrs9-credit-loss","lead-followup-agent","qorvex-finance-agent","sentinel-aml","supervisory-early-warning"]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"work","h":64,"c":"$Q2"}]]
-0:{"b":"JknH47N4cV2FXT_CWAijX","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"5KRc58_hGFe-kfIg-cd8I","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
